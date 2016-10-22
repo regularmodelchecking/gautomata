@@ -1,0 +1,3 @@
+#undef PACKAGE
+#undef VERSION
+#undef GAUTOMATA_WITH_MONA

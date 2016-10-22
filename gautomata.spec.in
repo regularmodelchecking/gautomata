@@ -1,0 +1,33 @@
+Summary: GAUTOMATA - A package for BDD based finite-state automata
+Name: gautomata
+Version: @VERSION@
+Release: 0
+Copyright: GPL
+Group: Applications
+Source: gautomata-%{version}.tar.gz
+URL: http://www.docs.uu.se/~marcusn/projects/rmc
+Distribution: Department of Information Technology
+Vendor: Department of Information Technology
+Packager: Marcus Nilsson (marcusn@docs.uu.se)
+Buildroot: /var/tmp/%{name}-root
+%description
+A package for BDD based finite-state automata.
+
+%prep
+%setup
+
+%build
+./configure --prefix=@prefix@
+make
+
+%install
+[ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
+make install DESTDIR=$RPM_BUILD_ROOT
+
+%clean
+[ "$RPM_BUILD_ROOT" != "/" ] && rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(-, root, root)
+/
+
